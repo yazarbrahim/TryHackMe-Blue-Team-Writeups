@@ -2,39 +2,35 @@ THM Link: https://tryhackme.com/room/phishingemails5fgjlzxc
 
 ![7a536cddfa9f36967772f42739d7e03a.png](resources/7a536cddfa9f36967772f42739d7e03a.png)
 
-Get some information on scenario:
+Get some information on the scenario:
 
-1.  Victim is <span style="color: #151c2b;">Sales Executive</span>
+1. Victim is a Sales Executive
 
-<span style="color: #151c2b;">2\. <span style="color: #151c2b;">He didn't expect to receive from a customer</span></span>
+2. He didn't expect to receive from a customer 
 
-<span style="color: #151c2b;"><span style="color: #151c2b;">3\. Not using Good day</span></span>
+3. Not using Good day 
 
-<span style="color: #151c2b;"><span style="color: #151c2b;">4\. Did not expected any money</span></span>
+4. Did not expect any money 
 
-<span style="color: #151c2b;"><span style="color: #151c2b;">5\. Email contains attachment and never requested</span></span>
+5. Email contains an attachment and was never requested 
 
-<span style="color: #151c2b;"><span style="color: #151c2b;">Open email with thunderbird</span></span>
+ Open email with Thunderbird 
 
-<span style="color: #151c2b;"><span style="color: #151c2b;">![cb4bdeaeaf456431c91e1cf503db6b1e.png](resources/cb4bdeaeaf456431c91e1cf503db6b1e.png)</span></span>
+ ![cb4bdeaeaf456431c91e1cf503db6b1e.png](resources/cb4bdeaeaf456431c91e1cf503db6b1e.png) 
 
-<span style="color: #151c2b;"><span style="color: #151c2b;">Start analyzing the email:</span></span>
-
-&nbsp;
+ Start analyzing the email
 
 ![1f70224d9c2cfbe4228bca7d74765a91.png](resources/1f70224d9c2cfbe4228bca7d74765a91.png)info@mutawamarine.com
 
 ![c5f5ee89c8c926f095ba0da6e11ddadd.png](resources/c5f5ee89c8c926f095ba0da6e11ddadd.png)
 
-SPF Alignment: Sender Policy Framework. Simply, it’s an authentication policy, which ensures that the sender is authorized to by the sender, and relates to SMTP. The SPF Alignment is PASS only when “Return-Path” And “From” domain is same. Different between which helps us understand email could be spoofed
+SPF Alignment: Sender Policy Framework. Simply, it’s an authentication policy, which ensures that the sender is authorized by the sender, and relates to SMTP. The SPF Alignment is PASS only when the “Return-Path” And “From” domains are the same. Different between which helps us understand email could be spoofed
 
 ![c02b3f84356c3b542513b4af190739ac.png](resources/c02b3f84356c3b542513b4af190739ac.png)
 
-From this image, we can see that the SPF failed this means the authentication was not approved
+From this image, we can see that the SPF failed, which means the authentication was not approved
 
 ![3e4f32fe37113187bbbe3dfdf618aed2.png](resources/3e4f32fe37113187bbbe3dfdf618aed2.png)
-
-&nbsp;
 
 ![ba7dfc07431dc2a2b05063218122fa4d.png](resources/ba7dfc07431dc2a2b05063218122fa4d.png)
 
@@ -61,9 +57,9 @@ From this image, we can see that the SPF failed this means the authentication wa
 2.  **Locate the IP Address**: In the first "Received" line, look for the IP address following the `from` keyword. This is the IP address from which the email was originally sent.
     
 
-For finding which Received is first we can check the tyime and identify the first email.
+To find which email is first, we can check the time and identify the first email.
 
-![51da6e8fb3b809244e1c1a18ab3a3095.png](resources/51da6e8fb3b809244e1c1a18ab3a3095.png) times are different time and we need to convert UTC time zone
+![51da6e8fb3b809244e1c1a18ab3a3095.png](resources/51da6e8fb3b809244e1c1a18ab3a3095.png) times are different, and we need to convert UTC zone
 
 Wed, 10 Jun 2020 05:58:54 +0000 --> Wed, 10 Jun 2020 05:58:54 +0000 UTC
 
@@ -77,7 +73,7 @@ Therefore, the **Originating IP** is **192.119.71.157**.
 
 ![93af32cc6a45919eb4327b3bf4a55894.png](resources/93af32cc6a45919eb4327b3bf4a55894.png)
 
-&nbsp;
+ 
 
 **Who is the owner of the Originating IP? (Do not include the "." in your answer.)**
 
@@ -93,28 +89,28 @@ Resolve-DnsName
 
 ![cf067710f3abaa3562207135d2b1b42d.png](resources/cf067710f3abaa3562207135d2b1b42d.png)
 
-Go to https://whois.domaintools.com/ and copy paste IP address
+Go to https://whois.domaintools.com/ and copy and paste the IP address
 
 ![0654907f570fb6a14f1ea48a27a7e6db.png](resources/0654907f570fb6a14f1ea48a27a7e6db.png)
 
 **What is the SPF record for the Return-Path domain?**
 
-Go to MXtool box https://mxtoolbox.com/   
+Go to MXtoolbox https://mxtoolbox.com/   
 
 ![8fd2c8bd4f7e6e60acf27fbe347eaa22.png](resources/8fd2c8bd4f7e6e60acf27fbe347eaa22.png)
 
-From above image, we can see that the SPF failed, this means the authentication was not approved
+From the above image, we can see that the SPF failed; this means the authentication was not approved
 
 ![ba73881499b4718100b49e4726b7cdf1.png](resources/ba73881499b4718100b49e4726b7cdf1.png)
 
 ![87a87430bcd658e97386de3b9b27cc25.png](resources/87a87430bcd658e97386de3b9b27cc25.png)
 
-&nbsp;
+ 
 
 **What is the DMARC record for the Return-Path domain?**  
-DMARC: Domain-based Message Authentication, Reporting, and Conformance. It helps protect and reduce spam, imagine how much you’d get without it
+DMARC: Domain-based Message Authentication, Reporting, and Conformance. It helps protect and reduce spam. Imagine how much you’d get without it
 
-Same steps with SPF but this time select DMARC on drop box
+Same steps with SPF, but this time select DMARC on drop box
 
 ![fd666e46b2929f3e52351ae5b9b3e6b7.png](resources/fd666e46b2929f3e52351ae5b9b3e6b7.png)
 
@@ -122,7 +118,7 @@ v=DMARC1 — this is the DMARC version
 
 p=quarantine — this means it is spam and should be filtered
 
-fo=1 this is an additional filter to generate reports if authentication fails
+fo=1 This is an additional filter to generate reports if authentication fails
 
 **What is the name of the attachment?**
 
@@ -136,7 +132,7 @@ For questions like this, if you're using Mousepad, you can easily find the answe
 
 ![8b5c3c7f60c8d10b6aa255e3498388e2.png](resources/8b5c3c7f60c8d10b6aa255e3498388e2.png)
 
-&nbsp;
+ 
 
 **What is the SHA256 hash of the file attachment?**
 
@@ -166,7 +162,7 @@ sha256sum SWT_#09674321_\__*PDF*\_.CAB
 
 ![daeb807f9581288acdcba5117fe304b9.png](resources/daeb807f9581288acdcba5117fe304b9.png)
 
-**What is the attachments file size? (Don't forget to add "KB" to your answer, NUM KB)**
+**What is the attachment's file size? (Don't forget to add "KB" to your answer, NUM KB)**
 
 ![4d9859e9a4900d3704095e7fb58411ea.png](resources/4d9859e9a4900d3704095e7fb58411ea.png)
 
