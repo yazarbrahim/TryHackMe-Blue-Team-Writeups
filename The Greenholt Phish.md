@@ -20,7 +20,8 @@ Get some information on the scenario:
 
  Start analyzing the email
 
-![1f70224d9c2cfbe4228bca7d74765a91.png](resources/1f70224d9c2cfbe4228bca7d74765a91.png)info@mutawamarine.com
+![1f70224d9c2cfbe4228bca7d74765a91.png](resources/1f70224d9c2cfbe4228bca7d74765a91.png)
+info@mutawamarine.com
 
 ![c5f5ee89c8c926f095ba0da6e11ddadd.png](resources/c5f5ee89c8c926f095ba0da6e11ddadd.png)
 
@@ -101,8 +102,6 @@ Go to MXtoolbox https://mxtoolbox.com/   
 
 From the above image, we can see that the SPF failed; this means the authentication was not approved
 
-![ba73881499b4718100b49e4726b7cdf1.png](resources/ba73881499b4718100b49e4726b7cdf1.png)
-
 ![87a87430bcd658e97386de3b9b27cc25.png](resources/87a87430bcd658e97386de3b9b27cc25.png)
 
  
@@ -110,7 +109,7 @@ From the above image, we can see that the SPF failed; this means the authenticat
 **What is the DMARC record for the Return-Path domain?**  
 DMARC: Domain-based Message Authentication, Reporting, and Conformance. It helps protect and reduce spam. Imagine how much you’d get without it
 
-Same steps with SPF, but this time select DMARC on drop box
+Same steps with SPF, but this time select DMARC in the drop-down
 
 ![fd666e46b2929f3e52351ae5b9b3e6b7.png](resources/fd666e46b2929f3e52351ae5b9b3e6b7.png)
 
@@ -136,7 +135,7 @@ For questions like this, if you're using Mousepad, you can easily find the answe
 
 **What is the SHA256 hash of the file attachment?**
 
-Now, let's look at how we can find the SHA256 hash of the file attachment. We'll go through the process of obtaining the hash using both Linux and PowerShell.​
+Now, let's look at how to find the SHA-256 hash of the file attachment. We'll go through the process of obtaining the hash using both Linux and PowerShell.​
 
 **For PowerShell (Windows):​**
 
